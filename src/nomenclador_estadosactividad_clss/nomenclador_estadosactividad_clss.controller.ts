@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
 import { NomencladorEstadosactividadClssService } from './nomenclador_estadosactividad_clss.service';
 import { CreateNomencladorEstadosactividadClssDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
 import { UpdateNomencladorEstadosactividadClssDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
@@ -8,8 +8,14 @@ export class NomencladorEstadosactividadClssController {
   constructor(private readonly nomencladorEstadosactividadClssService: NomencladorEstadosactividadClssService) {}
 
   @Post()
-  create(@Body() createNomencladorEstadosactividadClssDto: CreateNomencladorEstadosactividadClssDto) {
-    return this.nomencladorEstadosactividadClssService.create(createNomencladorEstadosactividadClssDto);
+  create(@Body(ValidationPipe) createNomencladorEstadosactividadClssDto: CreateNomencladorEstadosactividadClssDto) {
+    try{
+      return this.nomencladorEstadosactividadClssService.create(createNomencladorEstadosactividadClssDto);
+    }
+    catch(ex){
+      console.log(ex)
+    }
+    
   }
 
   @Get()
