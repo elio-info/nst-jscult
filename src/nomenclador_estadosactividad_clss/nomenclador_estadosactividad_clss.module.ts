@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { NomencladorEstadosactividadClssService } from './nomenclador_estadosactividad_clss.service';
-import { NomencladorEstadosactividadClssController } from './nomenclador_estadosactividad_clss.controller';
+import { NomencladorEstadosActividadController } from './nomenclador_estadosactividad_clss.controller';
+import { MongooseModule } from '@nestjs/mongoose';
+import { NomencladorEstadosActividadClss, NomencladorEstadosActividadSchema } from './schemas/nomenclador_estadosactividad_clss.schema';
+import { NomencladorEstadosActividadService } from './nomenclador_estadosactividad_clss.service';
 
 @Module({
-  controllers: [NomencladorEstadosactividadClssController],
-  providers: [NomencladorEstadosactividadClssService],
+  imports:[MongooseModule.forFeature([{name: NomencladorEstadosActividadClss.name, schema: NomencladorEstadosActividadSchema}])],
+  controllers: [NomencladorEstadosActividadController],
+  providers: [NomencladorEstadosActividadService],
 })
 export class NomencladorEstadosactividadClssModule {}

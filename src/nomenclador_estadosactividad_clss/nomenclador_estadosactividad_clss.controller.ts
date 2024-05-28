@@ -1,40 +1,36 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
-import { NomencladorEstadosactividadClssService } from './nomenclador_estadosactividad_clss.service';
-import { CreateNomencladorEstadosactividadClssDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
-import { UpdateNomencladorEstadosactividadClssDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
+import { Req, Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
+import { NomencladorEstadosActividadService } from './nomenclador_estadosactividad_clss.service';
+import { CreateNomencladorEstadosActividadDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
+import { ApiTags } from '@nestjs/swagger';
+import { UpdateNomencladorEstadosActividadDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
 
 @Controller('nomenclador-estadosactividad-clss')
-export class NomencladorEstadosactividadClssController {
-  constructor(private readonly nomencladorEstadosactividadClssService: NomencladorEstadosactividadClssService) {}
+@ApiTags('nomenclador-estadosactividad-clss')
+export class NomencladorEstadosActividadController {
+  constructor(private readonly nomencladorEstadosActividadService: NomencladorEstadosActividadService) {}
 
   @Post()
-  create(@Body(ValidationPipe) createNomencladorEstadosactividadClssDto: CreateNomencladorEstadosactividadClssDto) {
-    try{
-      return this.nomencladorEstadosactividadClssService.create(createNomencladorEstadosactividadClssDto);
-    }
-    catch(ex){
-      console.log(ex)
-    }
-    
+  create(@Body() createNomencladorEstadosActividadDto: CreateNomencladorEstadosActividadDto) {   
+      return this.nomencladorEstadosActividadService.create(createNomencladorEstadosActividadDto)   
   }
 
   @Get()
   findAll() {
-    return this.nomencladorEstadosactividadClssService.findAll();
+    return this.nomencladorEstadosActividadService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.nomencladorEstadosactividadClssService.findOne(+id);
+    return this.nomencladorEstadosActividadService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNomencladorEstadosactividadClssDto: UpdateNomencladorEstadosactividadClssDto) {
-    return this.nomencladorEstadosactividadClssService.update(+id, updateNomencladorEstadosactividadClssDto);
+  update(@Param('id') id: string, @Body() updateNomencladorEstadosactividadClssDto: UpdateNomencladorEstadosActividadDto) {
+    return this.nomencladorEstadosActividadService.update(id, updateNomencladorEstadosactividadClssDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.nomencladorEstadosactividadClssService.remove(+id);
+    return this.nomencladorEstadosActividadService.remove(id);
   }
 }

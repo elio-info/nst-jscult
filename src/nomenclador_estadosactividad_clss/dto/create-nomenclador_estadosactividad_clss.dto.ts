@@ -1,7 +1,7 @@
 
 import { ApiProperty } from "@nestjs/swagger"
 import { IsString , IsNotEmpty, IsInt,  } from "class-validator"
-export class CreateNomencladorEstadosactividadClssDto {
+export class CreateNomencladorEstadosActividadDto {
     @IsNotEmpty({message:'Id:Esto es obligatorio'})
     @ApiProperty(  {example:'P'} )
     @IsString({message:'Id:Esto es obligatorio'})

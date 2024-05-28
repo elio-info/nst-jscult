@@ -1,26 +1,40 @@
 import { Injectable } from '@nestjs/common';
-import { CreateNomencladorEstadosactividadClssDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
-import { UpdateNomencladorEstadosactividadClssDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
+import { CreateNomencladorEstadosActividadDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
+import { UpdateNomencladorEstadosActividadDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
+import { NomencladorEstadosActividadClss, NomencladorEstadoActividadDocument } from './schemas/nomenclador_estadosactividad_clss.schema';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { timeStamp } from 'console';
 
 @Injectable()
-export class NomencladorEstadosactividadClssService {
-  create(createNomencladorEstadosactividadClssDto: CreateNomencladorEstadosactividadClssDto) {
-    return 'This action adds a new nomencladorEstadosactividadClss';
+export class NomencladorEstadosActividadService {
+
+  constructor(
+    @InjectModel (NomencladorEstadosActividadClss.name )
+    private nomencladorEstadosActividadModel: Model<NomencladorEstadoActividadDocument>,
+  ){}
+
+  async create(createNomencladorEstadosActividadDto: CreateNomencladorEstadosActividadDto):
+    Promise<NomencladorEstadosActividadClss>
+  {
+    return this.nomencladorEstadosActividadModel.create(createNomencladorEstadosActividadDto);
   }
 
-  findAll() {
-    return `This action returns all nomencladorEstadosactividadClss`;
+  async findAll(): Promise<NomencladorEstadosActividadClss[]> {
+    return this.nomencladorEstadosActividadModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} nomencladorEstadosactividadClss`;
+  async findOne(id: string) {
+    return this.nomencladorEstadosActividadModel.findOne({ _id:id}).exec();
   }
 
-  update(id: number, updateNomencladorEstadosactividadClssDto: UpdateNomencladorEstadosactividadClssDto) {
-    return `This action updates a #${id} nomencladorEstadosactividadClss`;
+  async update(id: string, updateNomencladorEstadosActividadDto: UpdateNomencladorEstadosActividadDto) {
+    return this.nomencladorEstadosActividadModel.findOneAndUpdate(
+      { _id:id},updateNomencladorEstadosActividadDto,{new: true,}
+    )
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} nomencladorEstadosactividadClss`;
+  async remove(id: string) {
+    return this.nomencladorEstadosActividadModel.findByIdAndDelete({_id:id}).exec()
   }
 }
