@@ -1,6 +1,6 @@
 import { Req, Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
 import { Request } from 'express';
-import { NomencladorEstadosActividadService } from './nomenclador_estadosactividad_clss.service';
+import { Nomenclador_EstadosActividad_Service } from './nomenclador_estadosactividad_clss.service';
 import { CreateNomencladorEstadosActividadDto } from './dto/create-nomenclador_estadosactividad_clss.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { UpdateNomencladorEstadosActividadDto } from './dto/update-nomenclador_estadosactividad_clss.dto';
@@ -8,7 +8,7 @@ import { UpdateNomencladorEstadosActividadDto } from './dto/update-nomenclador_e
 @Controller('nomenclador-estadosactividad-clss')
 @ApiTags('nomenclador-estadosactividad-clss')
 export class NomencladorEstadosActividadController {
-  constructor(private readonly nomencladorEstadosActividadService: NomencladorEstadosActividadService) {}
+  constructor(private readonly nomencladorEstadosActividadService: Nomenclador_EstadosActividad_Service) {}
 
   @Post()
   create(@Body(new ValidationPipe()) createNomencladorEstadosActividadDto: CreateNomencladorEstadosActividadDto) {   

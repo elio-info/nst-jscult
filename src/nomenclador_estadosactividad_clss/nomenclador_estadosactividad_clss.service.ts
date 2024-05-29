@@ -9,7 +9,7 @@ import { timeStamp } from 'console';
 import { KeyObject } from 'crypto';
 
 @Injectable()
-export class NomencladorEstadosActividadService {
+export class Nomenclador_EstadosActividad_Service {
 
   constructor(
     @InjectModel (Nomenclador_EstadosActividad.name )

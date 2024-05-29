@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NomencladorEstadosActividadController } from './nomenclador_estadosactividad_clss.controller';
-import { NomencladorEstadosActividadService } from './nomenclador_estadosactividad_clss.service';
+import { Nomenclador_EstadosActividad_Service } from './nomenclador_estadosactividad_clss.service';
 
 describe('NomencladorEstadosactividadClssController', () => {
   let controller: NomencladorEstadosActividadController;
@@ -8,7 +8,7 @@ describe('NomencladorEstadosactividadClssController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [NomencladorEstadosActividadController],
-      providers: [NomencladorEstadosActividadService],
+      providers: [Nomenclador_EstadosActividad_Service],
     }).compile();
 
     controller = module.get<NomencladorEstadosActividadController>(NomencladorEstadosActividadController);
