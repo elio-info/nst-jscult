@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { NomencladorEstadosactividadClssController } from './nomenclador_estadosactividad_clss.controller';
-import { NomencladorEstadosactividadClssService } from './nomenclador_estadosactividad_clss.service';
+import { NomencladorEstadosActividadController } from './nomenclador_estadosactividad_clss.controller';
+import { NomencladorEstadosActividadService } from './nomenclador_estadosactividad_clss.service';
 
 describe('NomencladorEstadosactividadClssController', () => {
-  let controller: NomencladorEstadosactividadClssController;
+  let controller: NomencladorEstadosActividadController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [NomencladorEstadosactividadClssController],
-      providers: [NomencladorEstadosactividadClssService],
+      controllers: [NomencladorEstadosActividadController],
+      providers: [NomencladorEstadosActividadService],
     }).compile();
 
-    controller = module.get<NomencladorEstadosactividadClssController>(NomencladorEstadosactividadClssController);
+    controller = module.get<NomencladorEstadosActividadController>(NomencladorEstadosActividadController);
   });
 
   it('should be defined', () => {
