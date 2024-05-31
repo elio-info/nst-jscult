@@ -75,7 +75,7 @@ export class Nomenclador_EstadosActividad_Service {
     return this.nomencladorEstadosActividadModel.findOneAndUpdate(
       
       { id_NEA:id},updateNomencladorEstadosActividadDto,{new: true,}
-    )
+    ).exec()
   }
 
   async remove(id: string) {

@@ -22,8 +22,18 @@ export class Nomenclador_TiposActividad_Service {
 
   async find(req:Request) : Promise<Nomenclador_TiposActividad_Interface[]>{
     //`This action returns all nomencladorTiposactividadClss`;
-    let busco
-    if(req.query.nta) busco={id_NTA: req.query.nta}
+    let preg=req.query,
+        busco=preg.nta? {
+        id_NTA: preg.nta ? {
+          $regex: preg.nta,
+          $options: 'i'
+          } : '',
+        nombre_NTA: preg.nmb ?{ 
+          $regex: preg.nmb,
+          $options:'i'
+        } : '',
+  }:{}
+  console.log(busco)
     return await this.model.find(busco)
   }
 /*
@@ -34,13 +44,16 @@ export class Nomenclador_TiposActividad_Service {
   findOne(id: number) {
     return `This action returns a #${id} nomencladorTiposactividadClss`;
   }
-
-  update(id: number, updateNomencladorTiposactividadClssDto: UpdateNomencladorTiposactividadClssDto) {
-    return `This action updates a #${id} nomencladorTiposactividadClss`;
+*/
+ async update(id: string, updateNomencladorTiposactividadClssDto: UpdateNomencladorTiposactividadClssDto) {
+    return await this.model.findOneAndUpdate(
+      { id_NTA:id},updateNomencladorTiposactividadClssDto,{new:true,}
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} nomencladorTiposactividadClss`;
+async  remove(id: string) {
+    return await this.model.findOneAndDelete({id_NTA:id});
   }
+  /*
   */
 }
