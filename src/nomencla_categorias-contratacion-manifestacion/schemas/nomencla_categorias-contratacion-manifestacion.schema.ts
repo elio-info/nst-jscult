@@ -3,10 +3,14 @@ import { Document } from "mongoose";
 
 @Schema()
 export class Nomencla_Categorias_ContratacionManifestacion {
-    @Prop()
+    @Prop({
+        required:true
+    })
     nombre_categoria_manifestacion :string
 
-    @Prop()
+    @Prop({
+        default:true
+    })
     apoyo_categoria_manifestacion:boolean
 }
 

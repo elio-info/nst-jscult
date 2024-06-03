@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator"
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator"
 
 export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     @ApiProperty({
@@ -12,8 +12,12 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     @ApiProperty({
         example:'Este campo es verdadero por defecto'
     })
+    @IsOptional()
     @IsBoolean({
         message:'Solo Si o No'
     })
-    apoyo_categoria_manifestacion:boolean
+    apoyo_categoria_manifestacion:{
+        type: boolean,
+        value:true
+    }
 }
