@@ -1,0 +1,1 @@
+export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {}

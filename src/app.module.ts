@@ -2,16 +2,16 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { NomencladorEtarioClssController } from './nomenclador_etario_clss/nomenclador_etario_clss.controller';
-import { NomencladorEtarioClssService } from './nomenclador_etario_clss/nomenclador_etario_clss.service';
-import { NomencladorEtarioClssModule } from './nomenclador_etario_clss/nomenclador_etario_clss.module';
-import { Nomenclador_EstadosActividad_Module } from './nomenclador_estadosactividad_clss/nomenclador_estadosactividad_clss.module';
+import { NomenclaCategContrfatModule } from './nomencla_categ-contrfat/nomencla_categ-contrfat.module';
+import { Nomencla_Categorias_ContratacionManifestacion_Module } from './nomencla_categorias-contratacion-manifestacion/nomencla_categorias-contratacion-manifestacion.module';
 
 @Module({
   imports: [
     //importando Mongoose
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/cultura') ,
-    //fin de Mongoose
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/cultura'),//fin de Mongoose
+    NomenclaCategContrfatModule,
+    Nomencla_Categorias_ContratacionManifestacion_Module ,
+    
     //NomencladorEtarioClssModule, 
     //Nomenclador_EstadosActividad_Module
     //,Nomenclador_TiposActividad_Module      
