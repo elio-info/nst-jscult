@@ -12,6 +12,12 @@ export class Nomencla_Categorias_ContratacionManifestacion {
         default:true
     })
     apoyo_categoria_manifestacion:boolean
+
+    @Prop({ default: Date.now })
+    createdAt: Date;
+  
+    @Prop({ default: Date.now })
+    updatedAt: Date;
 }
 
 export const Nomencla_Categorias_ContratacionManifestacion_Schema=

@@ -20,4 +20,6 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
         type: boolean,
         value:true
     }
+
+    
 }
