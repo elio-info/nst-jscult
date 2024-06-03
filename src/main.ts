@@ -8,7 +8,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe())
 
-  //configurando tiutlos de documentacion
+  //configurando titulos de documentacion
   let opciones=new DocumentBuilder()
     .setTitle('Esta es la documentacion')
     .setDescription(' esta es la API de prueba')
