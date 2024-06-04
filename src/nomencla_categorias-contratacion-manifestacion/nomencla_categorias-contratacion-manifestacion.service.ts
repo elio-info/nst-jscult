@@ -32,21 +32,22 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
     return this.nomencla_categ_ContrataManif_Model.find();
   }
 
-  findId(id:string) {
-    return this.nomencla_categ_ContrataManif_Model.findById({_id:id});
+  async findId(id:string) {
+    return await this.nomencla_categ_ContrataManif_Model.findById({_id:id});
   }
-  findFirstName(id_nom_cat_contman: string):Promise<Nomencla_Categorias_ContratacionManifestacion> {
+  async findFirstName(id_nom_cat_contman: string):Promise<Nomencla_Categorias_ContratacionManifestacion> {
     console.log(id_nom_cat_contman)
-    let ll=this.nomencla_categ_ContrataManif_Model.findOne({
+    let ll=await this.nomencla_categ_ContrataManif_Model.findOne({
       nombre_categoria_manifestacion:id_nom_cat_contman
     })
     console.log(ll)
     return ll;
   }
 
-  update(id: string, updateNomenclaCategoriasContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
+  async update(id: string, updateNomenclaCategoriasContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
     console.log(updateNomenclaCategoriasContratacionManifestacionDto)
-    return this.nomencla_categ_ContrataManif_Model.findByIdAndUpdate(id,updateNomenclaCategoriasContratacionManifestacionDto, { new: true});
+    const rest= await this.nomencla_categ_ContrataManif_Model.findByIdAndUpdate(id,updateNomenclaCategoriasContratacionManifestacionDto, { new: true})
+    return rest
   }
 
   remove(id: string) {

@@ -32,8 +32,14 @@ export class Nomencla_Categorias_ContratacionManifestacion_Controller {
    * being called with the `id` parameter passed to it, and the result of this method call
    * is being returned.
    */
-  findOne(@Param('id') id: string) {
-    return this.nomencla_Categorias_ContratacionManifestacionService.findFirstName(id);
+  findById(@Param('id') id: string) {
+    return this.nomencla_Categorias_ContratacionManifestacionService.findId(id);
+  }
+
+  @Get(':name')
+  findByName(@Param('name') name: string) {
+    console.log(name)
+    return this.nomencla_Categorias_ContratacionManifestacionService.findFirstName(name);
   }
 
   @Patch(':id')
