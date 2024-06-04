@@ -1,7 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
-@Schema()
+@Schema({
+    timestamps:true,
+    validateBeforeSave:true
+})
 export class Nomencla_Categorias_ContratacionManifestacion {
     @Prop({
         required:true
@@ -9,7 +12,7 @@ export class Nomencla_Categorias_ContratacionManifestacion {
     nombre_categoria_manifestacion :string
 
     @Prop({
-        default:true
+        default:false
     })
     apoyo_categoria_manifestacion:boolean
 

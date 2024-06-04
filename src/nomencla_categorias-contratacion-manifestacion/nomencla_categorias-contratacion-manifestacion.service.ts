@@ -13,7 +13,7 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
   ){}
 
   async create(createNomenclaCategoriasContratacionManifestacionDto: Create_Nomencla_CategoriasContratacionManifestacion_Dto) {
-    let dep= await this.findFirst(createNomenclaCategoriasContratacionManifestacionDto.nombre_categoria_manifestacion)
+    let dep= await this.findFirstName(createNomenclaCategoriasContratacionManifestacionDto.nombre_categoria_manifestacion)
     console.log(dep)
     if ( 
       dep!=null
@@ -32,7 +32,10 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
     return this.nomencla_categ_ContrataManif_Model.find();
   }
 
-  findFirst(id_nom_cat_contman: string):Promise<Nomencla_Categorias_ContratacionManifestacion> {
+  findId(id:string) {
+    return this.nomencla_categ_ContrataManif_Model.findById({_id:id});
+  }
+  findFirstName(id_nom_cat_contman: string):Promise<Nomencla_Categorias_ContratacionManifestacion> {
     console.log(id_nom_cat_contman)
     let ll=this.nomencla_categ_ContrataManif_Model.findOne({
       nombre_categoria_manifestacion:id_nom_cat_contman
@@ -41,11 +44,12 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
     return ll;
   }
 
-  update(id: number, updateNomenclaCategoriasContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
-    return `This action updates a #${id} nomenclaCategoriasContratacionManifestacion~`;
+  update(id: string, updateNomenclaCategoriasContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
+    console.log(updateNomenclaCategoriasContratacionManifestacionDto)
+    return this.nomencla_categ_ContrataManif_Model.findByIdAndUpdate(id,updateNomenclaCategoriasContratacionManifestacionDto, { new: true});
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} nomenclaCategoriasContratacionManifestacion~`;
+  remove(id: string) {
+    return this.nomencla_categ_ContrataManif_Model.findOneAndDelete({_id:id});
   }
 }

@@ -4,7 +4,7 @@ import { Nomenclador_Clasifica_ContratoTalento, Nomenclador_EstadosDeActividadCu
 import { Nomenclador_EstadosActividad } from "src/nomenclador_estadosactividad_clss/schemas/nomenclador_estadosactividad_clss.schema";
 
 @Controller('nomenclador')
-@ApiTags('Nomencladores')
+@ApiTags('Nomencladores generales')
 
 export class Nomencladores_Generales{   
 

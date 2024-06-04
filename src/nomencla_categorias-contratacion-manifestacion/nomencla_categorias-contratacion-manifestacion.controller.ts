@@ -5,7 +5,7 @@ import { Update_Nomencla_CategoriasContratacionManifestacion_Dto } from './dto/u
 import { ApiTags } from '@nestjs/swagger';
 
 @Controller('nomencla-categorias-contratacion-manifestacion')
-@ApiTags('nomencla-categorias-contratacion-manifestacion')
+@ApiTags('Nomenclador de Categorias de Contratacion de Manifestacion Artistica')
 export class Nomencla_Categorias_ContratacionManifestacion_Controller {
   constructor(private readonly nomencla_Categorias_ContratacionManifestacionService: 
     Nomencla_Categorias_ContratacionManifestacion_Service) {}
@@ -22,7 +22,7 @@ export class Nomencla_Categorias_ContratacionManifestacion_Controller {
 
   /* This code snippet is defining a GET endpoint in a NestJS controller. */
   @Get(':id')
-  /**
+  /*
    * The function findOne takes an id parameter and returns the first result found by calling the
    * findFirst method of the nomencla_Categorias_ContratacionManifestacionService.
    * @param {string} id - The `findOne` function takes a parameter `id` of type string. This function
@@ -33,16 +33,16 @@ export class Nomencla_Categorias_ContratacionManifestacion_Controller {
    * is being returned.
    */
   findOne(@Param('id') id: string) {
-    return this.nomencla_Categorias_ContratacionManifestacionService.findFirst(id);
+    return this.nomencla_Categorias_ContratacionManifestacionService.findFirstName(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNomencla_Categorias_ContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
-    return this.nomencla_Categorias_ContratacionManifestacionService.update(+id, updateNomencla_Categorias_ContratacionManifestacionDto);
+  update(@Param('id') id: string, @Body(new ValidationPipe()) updateNomencla_Categorias_ContratacionManifestacionDto: Update_Nomencla_CategoriasContratacionManifestacion_Dto) {
+    return this.nomencla_Categorias_ContratacionManifestacionService.update(id, updateNomencla_Categorias_ContratacionManifestacionDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.nomencla_Categorias_ContratacionManifestacionService.remove(+id);
+    return this.nomencla_Categorias_ContratacionManifestacionService.remove(id);
   }
 }

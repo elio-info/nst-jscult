@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator"
+import { IsBoolean, IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator"
+import { Timestamp } from "rxjs"
 
 export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     @ApiProperty({
@@ -15,7 +16,7 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
         description: `Que sea de apoyo es que no sea de cultura propiamente: 
                           <br>  Si: luces, transporte 
                           <br>  No: danza, teatro                         
-                        <br>  Este campo es verdadero por defecto.                                          
+                        <br>  Este campo es Falso por defecto.                                          
                         `
     })
     @IsOptional()
@@ -24,8 +25,13 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     })
     apoyo_categoria_manifestacion:{
         type: boolean,
-        value:true
+        value:false
     }
-
-    
+    /**
+   * Date of this Information.
+   * @example "1900-01-01T05:00:00.000+05:00"
+   */
+    @IsOptional()
+    @IsDate()
+    createdAt:Date
 }
