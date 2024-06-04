@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { NomenclaCategContrfatModule } from './nomencla_categ-contrfat/nomencla_categ-contrfat.module';
 import { Nomencla_Categorias_ContratacionManifestacion_Module } from './nomencla_categorias-contratacion-manifestacion/nomencla_categorias-contratacion-manifestacion.module';
+import { Nomencladores_Generales } from './common/enums/codificadores_nomencladores.controller';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { Nomencla_Categorias_ContratacionManifestacion_Module } from './nomencla
   ],
   controllers: [
     AppController,
-    //NomencladorEtarioClssController
+    Nomencladores_Generales
   ],
   providers: [
     AppService, 

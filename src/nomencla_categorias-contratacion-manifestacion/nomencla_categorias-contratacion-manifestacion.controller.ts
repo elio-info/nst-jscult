@@ -2,8 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } fro
 import { Nomencla_Categorias_ContratacionManifestacion_Service } from './nomencla_categorias-contratacion-manifestacion.service';
 import { Create_Nomencla_CategoriasContratacionManifestacion_Dto } from './dto/create-nomencla_categorias-contratacion-manifestacion.dto';
 import { Update_Nomencla_CategoriasContratacionManifestacion_Dto } from './dto/update-nomencla_categorias-contratacion-manifestacion.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('nomencla-categorias-contratacion-manifestacion')
+@ApiTags('nomencla-categorias-contratacion-manifestacion')
 export class Nomencla_Categorias_ContratacionManifestacion_Controller {
   constructor(private readonly nomencla_Categorias_ContratacionManifestacionService: 
     Nomencla_Categorias_ContratacionManifestacion_Service) {}

@@ -35,9 +35,28 @@ This TypeScript code is defining an enum named `Nomenclador_Clasifrica_ContratoT
 represents different classifications for talent contracts. Each enum member consists of a key-value
 pair where the key is a single character representing the classification and the value is a
 descriptive string for that classification. */
-export enum Nomenclador_Clasifrica_ContratoTalento{
+export enum Nomenclador_Clasifica_ContratoTalento{
     "M" = "Mipyme" ,  
     "T" = "TCP" ,   
     "P" = "Profesional" ,   
     "A" = "Aficionado"
+}
+
+/**
+ * 	Grupos Etáreos: registrar la forma en que se clasifica la población de acuerdo a su edad.
+ *  En la información actual se clasifica en: 
+ */
+export enum Nomenclador_GrupoEtareo{
+    'N'='Niño (N)',
+    'AD'='Adolescente (AD)',
+    'J' ='Joven (J)',
+    'A'= 'Adulto (A)',
+    'AM' = 'Adulto Mayor (AM)',
+    'PG' = 'Público General (PG)'
+}
+
+export enum Nomenclador_Clasifrica_ProgramasSociales{
+    "Prov" = "Programa Social Provincial" ,  
+    "Prior" = "Programa Social Priorizado " ,   
+    "Espc" = "Programa Social Provinciales " 
 }
