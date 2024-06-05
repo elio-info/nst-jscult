@@ -28,8 +28,8 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
     
   }
 
-  findAll() {
-    return this.nomencla_categ_ContrataManif_Model.find();
+ async findAll() {
+    return await this.nomencla_categ_ContrataManif_Model.find();
   }
 
   async findId(id:string) {
@@ -50,7 +50,7 @@ export class Nomencla_Categorias_ContratacionManifestacion_Service {
     return rest
   }
 
-  remove(id: string) {
-    return this.nomencla_categ_ContrataManif_Model.findOneAndDelete({_id:id});
+  async remove(id: string) {
+    return await this.nomencla_categ_ContrataManif_Model.findOneAndDelete({_id:id});
   }
 }

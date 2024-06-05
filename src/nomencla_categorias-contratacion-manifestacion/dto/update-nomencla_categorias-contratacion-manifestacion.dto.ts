@@ -31,10 +31,7 @@ export class Update_Nomencla_CategoriasContratacionManifestacion_Dto extends Par
     @IsBoolean({
         message:'Solo Si o No'
     })
-    apoyo_categoria_manifestacion:{
-        type: boolean,
-        value:false
-    } 
+    apoyo_categoria_manifestacion:boolean
     
     @IsOptional()
     @IsDate()

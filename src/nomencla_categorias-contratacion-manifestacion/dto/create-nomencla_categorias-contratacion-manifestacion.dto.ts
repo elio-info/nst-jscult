@@ -23,10 +23,7 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     @IsBoolean({
         message:'Solo Si o No'
     })
-    apoyo_categoria_manifestacion:{
-        type: boolean,
-        value:false
-    }
+    apoyo_categoria_manifestacion:boolean
     /**
    * Date of this Information.
    * @example "1900-01-01T05:00:00.000+05:00"
@@ -34,4 +31,8 @@ export class Create_Nomencla_CategoriasContratacionManifestacion_Dto {
     @IsOptional()
     @IsDate()
     createdAt:Date
+
+    // @IsOptional()
+    // @IsDate()
+    // updatedAt:Date
 }
