@@ -25,10 +25,10 @@ describe('Nomencla_Categorias_ContratacionManifestacion_Service_Test', () => {
     const module: TestingModule = await Test.createTestingModule({
       // mio 
       // controllers:[Nomencla_Categorias_ContratacionManifestacion_Controller],
-      imports: [ /* the Module containing "Nomencla_Categorias_ContratacionManifestacionModel" */ ]
+      //imports: [ /*" the Module containing "*/ Nomencla_Categorias_ContratacionManifestacion ],
       // fin mio
       providers: [
-        Nomencla_Categorias_ContratacionManifestacion //original_Service 
+        Nomencla_Categorias_ContratacionManifestacion_Service  //original
         , {
           provide:getModelToken(Nomencla_Categorias_ContratacionManifestacion.name),
           useValue: mock_n_c_ContratManifestArts_service,
